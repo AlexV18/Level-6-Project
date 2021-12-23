@@ -6,51 +6,70 @@
  -->
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./design.css">
     </head>
     
     <!-- Built the starting HTML on 12/17/21 
-    Includes the text fields in separate divs and the submit button and dropdown-->
-    <body>
-        <div>
-            <h1>Med Diagnostic</h1>
-        </div>
+        Includes the text fields in separate divs and the submit button and dropdown-->
+        <body>
+            <div id="header">
+                <h1>Med Diagnostic</h1>
+            </div>
 
-        <div class="firstname">
-            <label for="first">* First Name:</label>
-            <input type="text" id="first" class="input-field" required placeholder="Enter your first name">
-        </div>
+            <div id="subheader">
+                <h2></h2>
+            </div>
+            
+            <div id="container">
+                
+                <form id="login-form">
+                    <div class="row">
+                        <label for="first">* First Name:</label>
+                        <input type="text" id="first" class="input-field" required placeholder="Enter your first name">
+                    </div>
+            
+                    <div class="row">
+                        <label for="last">* Last Name:</label>
+                        <input type="text" id="last" class="input-field" required placeholder="Enter your last name">
+                    </div>
+            
+                    <div class="row">
+                        <label for="email">* Email:</label>
+                        <input type="text" id="email" class="input-field" required placeholder="Enter your email">
+                    </div>
+            
+                    <div class="row">
+                        <label for="password">* Password:</label>
+                        <input type="password" id="password" class="input-field" required placeholder="Enter your password">
+                    </div>
+            
+                    <div class="row">
+                        <label for="repassword">* Re-enter password:</label>
+                        <input type="password" id="repassword" class="input-field" required placeholder="Re-enter your password">
+                    </div>
+            
+                    <div class="containerTwo">
+                        <select id="sex" name="sexlist" form="sexform">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select> 
+                        <p id="error">Passwords do not match.</p>
+                    </div>
+                    
+                   
+                    
+                    <div class="row">
+                        <button onclick="createAccount();" id="submit" >Sign Up</button>
+                    </div>
 
-        <div class="lastname">
-            <label for="last">* Last Name:</label>
-            <input type="text" id="last" class="input-field" required placeholder="Enter your last name">
-        </div>
-
-        <div class="emailaddress">
-            <label for="email">* Email Name:</label>
-            <input type="text" id="email" class="input-field" required placeholder="Enter your email">
-        </div>
-
-        <div class="passwordField">
-            <label for="password">* Password:</label>
-            <input type="text" id="password" class="input-field" required placeholder="Enter your password">
-        </div>
-
-        <div class="passwordFieldReentry">
-            <label for="repassword">* Re-enter password:</label>
-            <input type="text" id="repassword" class="input-field" required placeholder="Re-enter your password">
-        </div>
-
-        <div class="submitButton">
-            <button onclick="createAccount();" id="submit" >Sign Up</button>
-        </div>
+                </form>
+            </div>
 
 
         
-        <select id="sex" name="sexlist" form="sexform">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
         
         <img src="" alt="" id="male">
         <img src="" alt="" id="female">
