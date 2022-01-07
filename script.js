@@ -12,8 +12,11 @@ let name2 = "";
 let emailVar = "";
 let passwordVar = "";
 
-function createAccount()
+function createAccount(event)
 {
+    // console.log('yeet')
+    event.preventDefault();
+    // console.log('yeet 2: electric boogaloo')
     name1 = firstName.value;
     name2 = lastName.value;
     emailVar = email.value;
@@ -21,9 +24,15 @@ function createAccount()
 
     repasswordVar = repassword.value;
 
-    if(password !== repasswordVar)
+    console.log(password.value);
+    console.log(repassword.value);
+    if(passwordVar !== repasswordVar)
     {
         error.style.opacity = 1;
+    }
+    else 
+    {
+        window.location.href = "./anatomy.html";
     }
 }
 

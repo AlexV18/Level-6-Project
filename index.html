@@ -26,7 +26,7 @@
             
             <div id="container">
                 
-                <form id="login-form">
+                <form id="login-form" onsubmit="return createAccount(event)">
                     <div class="row">
                         <label for="first">* First Name:</label>
                         <input type="text" id="first" class="input-field" required placeholder="Enter your first name">
@@ -63,7 +63,7 @@
                    
                     
                     <div class="row">
-                        <button onclick="createAccount();" id="submit" >Sign Up</button>
+                        <button id="submit" >Sign Up</button>
                     </div>
 
                 </form>
