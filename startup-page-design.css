@@ -1,0 +1,100 @@
+body {
+    font-family: 'Quicksand';
+    margin: 0px;
+}
+
+
+#header {
+    display: flex;
+    box-shadow: 5px 10px 30x #888888;
+    background-color: #50b7ee;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+
+#container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.loginbuttons {
+    width: 150px;
+    border: none;
+    background-color: #04AA6D;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#login {
+    padding: 18px 30px;
+    font-size: 18px;
+  }
+
+  #diagnostic-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 550px;
+    box-shadow: 5px 1px 10px #b6b5b5;
+    background-color: rgb(255, 255, 255);
+    margin-top: 150px;
+    margin-left: 230px;
+    font-size: 16px;
+    padding: 70px;
+    border-radius: 20px;
+
+}
+
+  #signup {
+    padding: 30px 150px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+#button-container {
+    margin-left: auto;
+    margin-right: 10px;
+}
+  #heading {
+    margin-left: 15px;
+    font-weight: 400;
+}
+
+#doctor-image {
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 0px;
+}
+
+#sub-title {
+    font-size: 50px;
+    white-space: nowrap;
+}
+
+ul {
+    font-size: 40px;
+    padding-top: -5px;
+}
+
+li {
+    margin-top: 50px;
+}
+
+#emergency {
+    display: flex;
+    justify-content: center;
+    margin-top: 110px;
+    color: red;
+}
+
+
+  
+
