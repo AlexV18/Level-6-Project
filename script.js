@@ -15,8 +15,7 @@ let name2 = "";
 let emailVar = "";
 let passwordVar = "";
 
-const emailArray = [];
-const passArray = [];
+let accounts = {}
 
 function createAccount(event)
 {
@@ -36,8 +35,8 @@ function createAccount(event)
     }
     else 
     {
-        emailArray.push(emailVar);
-        passArray.push(passwordVar);
+        accounts[emailVar] = passwordVar
+        localStorage.setItem("accounts", JSON.stringify(accounts));
         window.location.href = "./anatomy.html";
     }
 }
@@ -56,11 +55,11 @@ function authenticate(event)
     emailVar = emailOne.value;
     passwordVar = passOne.value; 
 
-    for (let i=0; i<emailArray.length; i++) {
-        if(emailVar === emailArray[i] && passwordVar === passArray[i]) {
-            window.location.href = "./anatomy.html"
-        }
-    }
+    accounts = JSON.parse(localStorage.getItem("accounts"));
+   if (accounts[emailVar] == passwordVar)
+   {
+       window.location.href = "./anatomy.html"
+   }
 }
 
 function logIn()
