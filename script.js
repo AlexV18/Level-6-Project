@@ -72,3 +72,4 @@ function signUp()
     window.location.href = "./index.html"
 }
 
+

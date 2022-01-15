@@ -23,6 +23,9 @@
             }
         </style>
         <script>
+
+            let diagnosisArray = {};
+
             function initialize()
             {
                 head = document.getElementById("headcheck");
@@ -32,11 +35,15 @@
                 description = document.getElementById("description");
                 gender = document.getElementById("gendercheck");
                 report = document.getElementById("report");
+
+                history = document.getElementById("history");
             }
+
             function headFunction() {head.style.display="inline";}
             function armFunction() {arm.style.display="inline";}
             function chestFunction() {chest.style.display="inline";}
             function legFunction() {leg.style.display="inline";}
+
             function switchImage() {
                 var selectedImage = document.genderCheck.switch.value;
                 if (selectedImage === "male")
@@ -48,6 +55,7 @@
                     document.myImage.src = "femaleanatomy.jpg"
                 }
             }
+            
             function saveInfo()
             {
                 var head = document.headcheck.head.value;
@@ -57,10 +65,26 @@
                 var symptoms = analysis();
                 var solution = solution1();
 
+                var index = "index";
+
+                totalReport = "Head Symptoms: " + head + "<br/>Arm Symptoms: " +
+                    arm + "<br/>Chest Symptoms: " +  chest + "<br/>Leg Symptoms: " + leg + "<br/>Possible Problems: "
+                + symptoms + "<br/>Possible Solutions: " + solution;
+
+                diagnosisArray[index] = totalReport;
+                localStorage.setItem("diagnosisArray", JSON.stringify(diagnosisArray));
+                diagnosisArray = localStorage.getItem("diagnosisArray");
+
+                console.log(diagnosisArray);
+                // This is where you send the info to the HTML page
+
+                history.innerHTML = diagnosisArray.index;
+
                 report.innerHTML = "Head Symptoms: " + head + "<br/>Arm Symptoms: " +
                     arm + "<br/>Chest Symptoms: " +  chest + "<br/>Leg Symptoms: " + leg + "<br/>Possible Problems: "
                 + symptoms + "<br/>Possible Solutions: " + solution;
             }
+
             function analysis()
             {
                 var head = document.headcheck.head.value;
@@ -102,6 +126,7 @@
                 solution = "call 911!"
                 return symptoms;
             }
+
             function solution1()
             {
                 var head = document.headcheck.head.value;
@@ -247,5 +272,11 @@
             <button onClick="window.location.reload();">RESET</button>
         </center>
         <br><br><br><br>
+
+        <h1>History:</h1>
+        <br />
+        <div id="history"></div>
+
+        <script src="./script.js"></script>
     </body>
 </html>
