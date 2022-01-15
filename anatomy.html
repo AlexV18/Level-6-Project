@@ -35,8 +35,7 @@
                 description = document.getElementById("description");
                 gender = document.getElementById("gendercheck");
                 report = document.getElementById("report");
-
-                history = document.getElementById("history");
+                historyReport = document.getElementById("historyReport");
             }
 
             function headFunction() {head.style.display="inline";}
@@ -67,18 +66,14 @@
 
                 var index = "index";
 
-                totalReport = "Head Symptoms: " + head + "<br/>Arm Symptoms: " +
-                    arm + "<br/>Chest Symptoms: " +  chest + "<br/>Leg Symptoms: " + leg + "<br/>Possible Problems: "
-                + symptoms + "<br/>Possible Solutions: " + solution;
+                var totalReport = "Head Symptoms: " + head + "<br/>Arm Symptoms: " +
+                    arm + "<br/>Chest Symptoms: " + chest + "<br/>Leg Symptoms: " + leg + "<br/>Possible Problems: "
+                    + symptoms + "<br/>Possible Solutions: " + solution;
 
-                diagnosisArray[index] = totalReport;
-                localStorage.setItem("diagnosisArray", JSON.stringify(diagnosisArray));
-                diagnosisArray = localStorage.getItem("diagnosisArray");
+                //diagnosisArray[index] = totalReport;
+                localStorage.setItem("diagnosis", totalReport);
 
-                console.log(diagnosisArray);
-                // This is where you send the info to the HTML page
-
-                history.innerHTML = diagnosisArray.index;
+                historyReport.innerHTML = localStorage.getItem("diagnosis");
 
                 report.innerHTML = "Head Symptoms: " + head + "<br/>Arm Symptoms: " +
                     arm + "<br/>Chest Symptoms: " +  chest + "<br/>Leg Symptoms: " + leg + "<br/>Possible Problems: "
@@ -272,11 +267,11 @@
             <button onClick="window.location.reload();">RESET</button>
         </center>
         <br><br><br><br>
-
-        <h1>History:</h1>
-        <br />
-        <div id="history"></div>
-
+        <center>
+            <h1>History:</h1>
+        </center>
+        <div id="historyReport"></div>
+        <br /><br /><br /><br />
         <script src="./script.js"></script>
     </body>
 </html>
