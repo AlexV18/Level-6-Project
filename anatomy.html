@@ -5,17 +5,247 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./anatomy-design.css">
+        <style>
+            div
+            {
+                text-align: center;
+                margin-left:auto;
+                margin-right:auto;
+            }
+            h2
+            {
+                text-align:center;
+            }
+            img
+            {
+                margin-left:auto;
+                margin-right:auto;
+            }
+        </style>
+        <script>
+            function initialize()
+            {
+                head = document.getElementById("headcheck");
+                arm = document.getElementById("armcheck");
+                chest = document.getElementById("chestcheck");
+                leg = document.getElementById("legcheck");
+                description = document.getElementById("description");
+                gender = document.getElementById("gendercheck");
+                report = document.getElementById("report");
+            }
+            function headFunction() {head.style.display="inline";}
+            function armFunction() {arm.style.display="inline";}
+            function chestFunction() {chest.style.display="inline";}
+            function legFunction() {leg.style.display="inline";}
+            function switchImage() {
+                var selectedImage = document.genderCheck.switch.value;
+                if (selectedImage === "male")
+                {
+                    document.myImage.src = "maleAnatomy.jpg"
+                }
+                else
+                {
+                    document.myImage.src = "femaleanatomy.jpg"
+                }
+            }
+            function saveInfo()
+            {
+                var head = document.headcheck.head.value;
+                var arm = document.armcheck.arm.value;
+                var chest = document.chestcheck.chest.value;
+                var leg = document.legcheck.leg.value;
+                var symptoms = analysis();
+                var solution = solution1();
+
+                report.innerHTML = "Head Symptoms: " + head + "<br/>Arm Symptoms: " +
+                    arm + "<br/>Chest Symptoms: " +  chest + "<br/>Leg Symptoms: " + leg + "<br/>Possible Problems: "
+                + symptoms + "<br/>Possible Solutions: " + solution;
+            }
+            function analysis()
+            {
+                var head = document.headcheck.head.value;
+                var arm = document.armcheck.arm.value;
+                var chest = document.chestcheck.chest.value;
+                var leg = document.legcheck.leg.value;
+
+                if(head=== "memory loss" && arm==="scratches")
+                {
+                    symptoms = "concussion and/or head injury";
+                    solution = "MRI scan + rest";
+                    return symptoms;
+                }
+                if(chest==="chest pains" && arm==="loss of feeling")
+                {
+                    symptoms = "heart attack";
+                    solution = "call 911";
+                    return symptoms;
+                }
+                if(arm==="broken bones" && leg==="broken bones" || leg==="twisted ankle" || leg==="arthritis in knees")
+                {
+                    symptoms = "calcium deficiency";
+                    solution = "vitamins";
+                    return symptoms;
+                }
+                if(chest==="bleeding")
+                {
+                    symptoms = "cut";
+                    solution = "stitches";
+                    return symptoms;
+                }
+                if(head==="bleeding")
+                {
+                    symptoms = "cut or cracked skull"
+                    solution = "stitches";
+                    return symptoms;
+                }
+                symtpoms = "these set of symptoms are too vague - please go to the hospital immediately!"
+                solution = "call 911!"
+                return symptoms;
+            }
+            function solution1()
+            {
+                var head = document.headcheck.head.value;
+                var arm = document.armcheck.arm.value;
+                var chest = document.chestcheck.chest.value;
+                var leg = document.legcheck.leg.value;
+
+                if(head=== "memory loss" && arm==="scratches")
+                {
+                    symptoms = "concussion and/or head injury";
+                    solution = "MRI scan + rest";
+                    return solution;
+                }
+                if(chest==="chest pains" && arm==="loss of feeling")
+                {
+                    symptoms = "heart attack";
+                    solution = "call 911";
+                    return solution;
+                }
+                if(arm==="broken bones" && leg==="broken bones" || leg==="twisted ankle" || leg==="arthritis in knees")
+                {
+                    symptoms = "calcium deficiency";
+                    solution = "vitamins";
+                    return solution;
+                }
+                if(chest==="bleeding")
+                {
+                    symptoms = "cut";
+                    solution = "stitches";
+                    return solution;
+                }
+                if(head==="bleeding")
+                {
+                    symptoms = "cut or cracked skull"
+                    solution = "stitches";
+                    return solution;
+                }
+                symtpoms = "these set of symptoms are too vague - please go to the hospital immediately!"
+                solution = "call 911!"
+                return solution;
+            }
+        </script>
     </head>
-    <body>
+    <body onload = "initialize();">
         <div id="header">
             <h1 id="heading">Med Diagnostic</h1>
             <button id="logout">Log Out</button>
         </div>
-
-        <div id="container">
-            <!-- implement organization for this page -->
-            <h2 id="description">Based on your selection, click on the bodypart that hurts. You can only select one in this version.</h2>
-            <img src="https://media.istockphoto.com/photos/rendering-male-anatomy-figure-with-muscles-map-on-white-picture-id917739368" id="">
-        </div>
+        <center>
+            <div id="container">
+                <!-- implement organization for this page -->
+                <h2 id="description">Click on the body part that hurts. This version of anatomy shows vital internal organs only, not internal reproductive organs.</h2>
+            </div>
+        </center>
+        <form method="" action="" name="genderCheck">
+            <label for="head">Choose your gender:</label>
+            <select size="3" name="switch" onchange="switchImage();">
+                <optgroup label="Gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </optgroup>
+            </select>
+        </form>
+        <br>
+        <center>
+            <img src="" name="myImage" usemap="#body"/>
+            <map name="body">
+                    <area shape = "rect" coords="150, 10, 220, 85" onclick="headFunction()">
+                    <area shape = "rect" coords="80, 125, 130, 320" onclick="armFunction()">
+                    <area shape = "rect" coords= "225, 125, 300, 320" onclick="armFunction()">
+                    <area shape = "rect" coords="150, 125, 215, 300" onclick="chestFunction()">
+                    <area shape = "rect" coords="130, 305, 235, 545" onclick="legFunction()">
+                <!-- <area shape = "rect" coords="80, 125, 130, 320" href="index.html">
+                <area shape = "rect" coords="150, 125, 215, 300" href="index.html">
+                <area shape = "rect" coords="130, 305, 235, 545" href="index.html"> -->
+            </map>
+        </center>
+        <br>
+        <center>MAKE SURE TO CLICK SUBMIT!</center>
+        <center>You have four parts of the body you can click: Head, Arms, Legs, and Chest.</center>
+        <br>
+        <center>
+        <form id="headcheck" style="display:none" name="headcheck">
+            <label for="head">Head - Choose your symptoms:</label>
+            <select name="head" id="head">
+                <optgroup label="Head Symptoms">
+                    <option value="none">None</option>
+                    <option value="headache">Headache</option>
+                    <option value="bleeding">Bleeding</option>
+                    <option value="memory loss">Memory Loss</option>
+                </optgroup>
+            </select>
+        </form>
+        <br>
+        <form id="armcheck" style="display:none" name="armcheck">
+            <label for="arm">Arm - Choose your symptoms:</label>
+            <select name="arm" id="arm">
+                <optgroup label="Arm Symptoms">
+                    <option value="none">None</option>
+                    <option value="broken bones">Broken Bones</option>
+                    <option value="scratches">Scratches</option>
+                    <option value="loss of feeling">Loss of Feeling</option>
+                </optgroup>
+            </select>
+            <br>
+        </form>
+            <form id="chestcheck" style="display:none" name="chestcheck">
+                <label for="chest">Chest - Choose your symptoms:</label>
+                <select name="chest" id="chest">
+                    <optgroup label="Chest Symptoms">
+                        <option value="none">None</option>
+                        <option value="chest pains">Chest Pains</option>
+                        <option value="rib pains">Rib Pains</option>
+                        <option value="bleeding">Bleeding</option>
+                    </optgroup>
+                </select>
+            </form>
+            <br>
+            <form id="legcheck" style="display:none" name="legcheck">
+                <label for="leg">Leg - Choose your symptoms:</label>
+                <select name="leg" id="leg">
+                    <optgroup label="Leg Symptoms">
+                        <option value="none">None</option>
+                        <option value="broken bones">Broken Bones</option>
+                        <option value="arthritis in knees">Arthritis in Knees</option>
+                        <option value="twisted ankle">Twisted Ankle</option>
+                    </optgroup>
+                </select>
+                <br><br><br>
+                <input type="button" value="Submit" onclick="saveInfo()">
+            </form>
+        </center>
+    <br><br>
+        <center>The program does not account for all symptoms since some combinations of symptoms might be too vague to find a specific cause.</br>
+            Therefore, it will prioritize the main symptoms first to give a diagnosis. The diagnosis must be confirmed by a doctor before
+            treatment.</center>
+        <br><br>
+        <center>
+            <div id="report"></div>
+        </center>
+        <br><br>
+        <center>
+            <button onClick="window.location.reload();">RESET</button>
+        </center>
+        <br><br><br><br>
     </body>
 </html>
